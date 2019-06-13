@@ -21,22 +21,27 @@ class Instructor extends Person {
     }
     demo(subject){
         return `Today we are learning about ${subject}`
-    }
+    }//demo method
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
-    }
-}
+    }//grade method
+    changeGrade(student){
+       return student.grade - Math.random();
+        
+        }//changeGrade method
+}//Instructor class
 
 class Student extends Person {
     constructor(stuAttributes){
         super(stuAttributes);
         this.previousBackground = stuAttributes.previousBackground;
         this.className = stuAttributes.className;
-        this.favSubjects = stuAttributes.favSubjects;    
+        this.favSubjects = stuAttributes.favSubjects;
+        this.grade = stuAttributes.grade;    
     }
     listsSubjects(){
-         this.favSubjects.forEach(element => {
-            console.log(element);
+         this.favSubjects.forEach(item => {
+            console.log(item);
         });
         
     }//listsSubjects method
@@ -47,6 +52,12 @@ class Student extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
     }//sprintChallenge method
+
+    graduate(){
+        if (this.grade > 70){
+            return `Congrates you will be able to graduate!`
+        }
+    }//graduate method
 }//Student class
 
 class PM extends Instructor {
@@ -59,7 +70,7 @@ class PM extends Instructor {
         return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }//standUp method
     debugsCode(student, subject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${Student.name}'s code on ${subject}`
     }//debugsCode method
 }//PM class
 
@@ -91,7 +102,8 @@ const joe = new Student ({
     location: "Canada",
     previousBackground: "dancer",
     className: "Web15",
-    favSubjects: ["math", "python", "physics"]
+    favSubjects: ["math", "python", "physics"],
+    grade: 88,
 })
 
 const diane = new Student ({
@@ -100,7 +112,8 @@ const diane = new Student ({
     location: "Georgia",
     previousBackground: "painter",
     className: "Web14",
-    favSubjects: ["javascript", "CSS", "HTML"]
+    favSubjects: ["javascript", "CSS", "HTML"],
+    grade: 90,
 })
 
 //PMs//
@@ -127,4 +140,5 @@ const lily = new PM ({
     favInstructor: "Josh",
 })
 
-console.log(diane.listsSubjects());
+
+console.log(dan.changeGrade(diane));
