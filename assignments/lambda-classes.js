@@ -35,14 +35,17 @@ class Student extends Person {
         this.favSubjects = stuAttributes.favSubjects;    
     }
     listsSubjects(){
-
+         this.favSubjects.forEach(element => {
+            console.log(element);
+        });
+        
     }//listsSubjects method
     PRAssignment(subject){
-       return `${student.name} has submitted a PR for ${subject}`
+       return `${this.name} has submitted a PR for ${subject}`
 
     }//PRAssignment method
     sprintChallenge(subject){
-        return `${student.name} has begun sprint challenge on ${subject}`
+        return `${this.name} has begun sprint challenge on ${subject}`
     }//sprintChallenge method
 }//Student class
 
@@ -123,3 +126,5 @@ const lily = new PM ({
     gradClassName: "CS18",
     favInstructor: "Josh",
 })
+
+console.log(diane.listsSubjects());
